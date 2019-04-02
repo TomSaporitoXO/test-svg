@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import Person from "./Person";
+import Timer from './Timer';
 import "./App.css";
 
 class App extends Component {
@@ -55,6 +56,7 @@ class App extends Component {
             min="300"
             value={this.state.size}
           />
+          <Timer maxCount={300} timerEnded={()=>alert('whatup?')}/>
         </div>
       </div>
     );
