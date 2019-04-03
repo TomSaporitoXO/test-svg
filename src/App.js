@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
 import Person from "./Person";
-import Timer from './Timer';
-import SpinnerGame from './SpinnerGame';
+import Timer from "./Timer";
+import SpinnerGame from "./SpinnerGame";
 import "./App.css";
 
 class App extends Component {
@@ -57,9 +57,8 @@ class App extends Component {
             min="300"
             value={this.state.size}
           />
-          <Timer maxCount={300} timerEnded={()=>alert('whatup?')}/>
-
-          <SpinnerGame />
+          <Timer maxCount={300} timerEnded={() => alert("whatup?")} />
+          <SpinnerGame speedInSeconds="0.6" />
         </div>
       </div>
     );
