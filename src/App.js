@@ -58,7 +58,7 @@ class App extends Component {
             value={this.state.size}
           />
           <Timer maxCount={300} timerEnded={() => alert("whatup?")} />
-          <SpinnerGame speedInSeconds="0.6" />
+          <SpinnerGame speedInSeconds="1" />
         </div>
       </div>
     );

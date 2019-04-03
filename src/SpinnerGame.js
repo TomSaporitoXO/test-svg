@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import styled, { keyframes } from "styled-components";
 
 const rotate = keyframes`
@@ -11,12 +11,32 @@ const rotate = keyframes`
   }
 `;
 
+const DownTriangle = styled.div`
+  height: 0;
+  width: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid black;
+  margin: 5px;
+`;
+
+const SpinnerWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  align-items: center;
+  justify-content: center;
+`;
+
 const Spinner = styled.button`
   border: 16px solid #f3f3f3; /* Light grey */
-  border-top: 16px solid #3498db; /* Blue */
+  border-top: 16px solid red; /* Blue */
   border-radius: 50%;
-  background-color: ${props => props.bg || "red"};
-  padding: 30px;
+  background-color: blue;
+  padding: 20px;
+  display: flex;
+  align-items:center;
+  justify-content:center;
   animation-name: ${rotate};
   animation-duration: ${props => props.speedInSeconds}s;
   animation-play-state: ${props => {
@@ -30,12 +50,19 @@ const Spinner = styled.button`
 
   &:active {
     box-shadow: 0 0 5px rgba(0, 0, 0, 1);
-    padding: 29px;
+    padding: 18px;
     border: 16px solid #a3a3a3;
     border-top: 16px solid #3498db; /* Blue */
   }
   &:focus {
     outline: 0;
+  }
+  div{
+    color: white;
+    font-size: 38px;
+    height:38px;
+    width: 38px;
+    line-height: 1;
   }
 `;
 
@@ -92,15 +119,18 @@ class SpinnerGame extends Component {
 
   render() {
     return (
-      <Fragment>
+      <SpinnerWrapper>
+        <DownTriangle />
         <Spinner
           type="button"
           onClick={this.stopSpinner}
           spinning={this.state.spinning}
           {...this.props}
           ref={this.domSpinner}
-        />
-      </Fragment>
+        >
+          <div>&#9733;</div>
+        </Spinner>
+      </SpinnerWrapper>
     );
   }
 }
