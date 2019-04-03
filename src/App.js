@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import Person from "./Person";
 import Timer from './Timer';
+import SpinnerGame from './SpinnerGame';
 import "./App.css";
 
 class App extends Component {
@@ -57,6 +58,8 @@ class App extends Component {
             value={this.state.size}
           />
           <Timer maxCount={300} timerEnded={()=>alert('whatup?')}/>
+
+          <SpinnerGame />
         </div>
       </div>
     );
